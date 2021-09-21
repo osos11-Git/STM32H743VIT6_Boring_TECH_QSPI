@@ -3,7 +3,7 @@
  
  
 
- ***Example1***
+ # ***Example1***
  
  Just a simple example. This example does not create a .stldr file. It communicates with the W25Q64 and handles operations such as read,write etc...
  
@@ -14,7 +14,7 @@
  Chinese Source : https://cloud.tencent.com/developer/article/1662643
  
  
- ***Example2***
+ # ***Example2***
  
  Just a simple example. This example does not create a .stldr file. It communicates with the W25Q64 and handles operations such as read,write etc...
  
@@ -33,7 +33,7 @@
  This example is similar to the video on the Controllers Tech Youtube channel. 
  
  
- ***.stldr CubeProgrammer External Loader***
+ # ***.stldr CubeProgrammer External Loader***
  
  STM32CubeIDE to build .stldr file (I use 1.7.0)
  
