@@ -1,0 +1,8 @@
+w25q64.c:10:10:W25QXX_ReadID	32	static
+w25q64.c:33:6:W25QXX_Read	40	static
+w25q64.c:39:9:W25QXX_ReadSR	40	static
+w25q64.c:59:6:W25QXX_Wait_Busy	8	static
+w25q64.c:64:6:W25QXX_Write_Enable	24	static
+w25q64.c:75:6:W25QXX_Write_Disable	24	static
+w25q64.c:81:6:W25QXX_Erase_Sector	32	static
+w25q64.c:90:6:W25QXX_Page_Program	40	static
