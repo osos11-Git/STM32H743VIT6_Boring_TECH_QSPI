@@ -77,7 +77,6 @@ uint8_t w25qxx_ReadAllStatusReg(void)
 	return w25qxx_OK;
 }
 
-
 void W25QXX_Wait_Busy(void)
 {
 	while((w25qxx_ReadSR(W25X_ReadStatusReg1) & 0x01) == 0x01);
@@ -143,7 +142,7 @@ uint8_t W25qxx_EraseSector(uint32_t SectorAddress)
   else
 		result = QSPI_Send_CMD(&hqspi,W25X_SectorErase,SectorAddress,QSPI_ADDRESS_24_BITS,0,QSPI_INSTRUCTION_4_LINES,QSPI_ADDRESS_4_LINES,QSPI_DATA_NONE,0);
 	
-	
+
 	if(result == w25qxx_OK)
 		W25QXX_Wait_Busy();
 
@@ -167,7 +166,7 @@ uint8_t W25qxx_EraseBlock(uint32_t BlockAddress)
   else
 		result = QSPI_Send_CMD(&hqspi,W25X_BlockErase,BlockAddress,QSPI_ADDRESS_24_BITS,0,QSPI_INSTRUCTION_4_LINES,QSPI_ADDRESS_4_LINES,QSPI_DATA_NONE,0);
 	
-	
+
 	if(result == w25qxx_OK)
 		W25QXX_Wait_Busy();
 	
@@ -191,6 +190,7 @@ uint8_t W25qxx_EraseChip(void)
   else
 		result = QSPI_Send_CMD(&hqspi,W25X_ChipErase,0x00,QSPI_ADDRESS_8_BITS,0,QSPI_INSTRUCTION_4_LINES,QSPI_ADDRESS_NONE,QSPI_DATA_NONE,0);
 	
+
 	if(result == w25qxx_OK)
 		W25QXX_Wait_Busy();
 	
@@ -218,13 +218,12 @@ uint8_t W25qxx_PageProgram(uint8_t *pData, uint32_t WriteAddr, uint32_t Size)
 	if(result == w25qxx_OK)
 		result = HAL_QSPI_Transmit(&hqspi,pData,HAL_QPSI_TIMEOUT_DEFAULT_VALUE);
 	
-	
+	/* �ȴ�д����� */
 	if(result == w25qxx_OK)
 		W25QXX_Wait_Busy();
 	
   return result;
 }
-
 
 
 uint8_t W25qxx_Read(uint8_t *pData, uint32_t ReadAddr, uint32_t Size)
@@ -276,28 +275,28 @@ uint8_t W25qxx_Read(uint8_t *pData, uint32_t ReadAddr, uint32_t Size)
 void W25qxx_WriteNoCheck(uint8_t *pBuffer,uint32_t WriteAddr,uint32_t NumByteToWrite)
 {
 	uint16_t pageremain;	   
-	pageremain = 256 - WriteAddr % 256; 
+	pageremain = 256 - WriteAddr % 256;
 	if (NumByteToWrite <= pageremain)
 	{
-		pageremain = NumByteToWrite; 
+		pageremain = NumByteToWrite;
 	}
 	while(1)
 	{
 		W25qxx_PageProgram(pBuffer, WriteAddr, pageremain);
 		if (NumByteToWrite == pageremain)
 		{
-			break; 
+			break;
 		}
 	 	else //NumByteToWrite>pageremain
 		{
 			pBuffer += pageremain;
 			WriteAddr += pageremain;
 
-			NumByteToWrite -= pageremain; 
+			NumByteToWrite -= pageremain;
 			if (NumByteToWrite > 256)
-				pageremain = 256; 
+				pageremain = 256;
 			else
-				pageremain = NumByteToWrite; 
+				pageremain = NumByteToWrite;
 		}
 	}
 }
@@ -311,47 +310,47 @@ void W25qxx_Write(uint8_t* pBuffer, uint32_t WriteAddr, uint16_t NumByteToWrite)
  	uint16_t i;
 	uint8_t W25QXX_BUF[4096];
 
- 	secpos = WriteAddr / 4096; 
-	secoff = WriteAddr % 4096; 
-	secremain = 4096 - secoff; 
+ 	secpos = WriteAddr / 4096;
+	secoff = WriteAddr % 4096;
+	secremain = 4096 - secoff;
 
- 	if (NumByteToWrite <= secremain) secremain = NumByteToWrite; 
+ 	if (NumByteToWrite <= secremain) secremain = NumByteToWrite;
 	while(1)
 	{
-		W25qxx_Read(W25QXX_BUF, secpos * 4096, 4096); 
-		for (i = 0;i < secremain; i++) 
+		W25qxx_Read(W25QXX_BUF, secpos * 4096, 4096);
+		for (i = 0;i < secremain; i++)
 		{
-			if (W25QXX_BUF[secoff+i] != 0XFF) break; 
+			if (W25QXX_BUF[secoff+i] != 0XFF) break;
 		}
-		if (i < secremain) 
+		if (i < secremain)
 		{
-			W25qxx_EraseSector(secpos); 
-			for (i = 0; i < secremain; i++) 
+			W25qxx_EraseSector(secpos);
+			for (i = 0; i < secremain; i++)
 			{
 				W25QXX_BUF[i + secoff] = pBuffer[i];
 			}
-			W25qxx_WriteNoCheck(W25QXX_BUF, secpos * 4096, 4096); 
+			W25qxx_WriteNoCheck(W25QXX_BUF, secpos * 4096, 4096);
 		}
 		else
 		{
-			W25qxx_WriteNoCheck(pBuffer, WriteAddr, secremain); 
+			W25qxx_WriteNoCheck(pBuffer, WriteAddr, secremain);
 		}
 		if (NumByteToWrite == secremain)
 		{
-			break; 
+			break;
 		}
 		else
 		{
-			secpos++; 
-			secoff = 0; 
+			secpos++;
+			secoff = 0;
 
-			pBuffer += secremain;  
+			pBuffer += secremain;
 			WriteAddr += secremain;
-			NumByteToWrite -= secremain; 
+			NumByteToWrite -= secremain;
 			if (NumByteToWrite > 4096)
-				secremain = 4096; 
+				secremain = 4096;
 			else
-				secremain = NumByteToWrite; 
+				secremain = NumByteToWrite;
 		}
 	}
 }
@@ -467,21 +466,7 @@ static uint32_t QSPI_ResetDevice(QSPI_HandleTypeDef *hqspi)
   return w25qxx_OK;
 }
 
-/**
- * @brief	QSPI
- *
- * @param   instruction		
- * @param   address			
- * @param   addressSize	
- * @param   dummyCycles		
- * @param   instructionMode		
- * @param   addressMode		QSPI_ADDRESS_NONE,QSPI_ADDRESS_1_LINE,QSPI_ADDRESS_2_LINES,QSPI_ADDRESS_4_LINES
- * @param   dataMode		QSPI_DATA_NONE,QSPI_DATA_1_LINE,QSPI_DATA_2_LINES,QSPI_DATA_4_LINES
- * @param   dataSize        
- *
- * @return  uint8_t			
- *                      
- */
+
 static uint8_t QSPI_Send_CMD(QSPI_HandleTypeDef *hqspi,uint32_t instruction, uint32_t address,uint32_t addressSize,uint32_t dummyCycles, 
                     uint32_t instructionMode,uint32_t addressMode, uint32_t dataMode, uint32_t dataSize)
 {
@@ -660,10 +645,10 @@ static uint8_t QSPI_EnterQPI(QSPI_HandleTypeDef *hqspi)
 {
 	uint8_t stareg2;
 	stareg2 = w25qxx_ReadSR(W25X_ReadStatusReg2);
-	if((stareg2 & 0X02) == 0) 
+	if((stareg2 & 0X02) == 0) //QEλδʹ��
 	{
 		W25qxx_WriteEnable();
-		stareg2 |= 1<<1; 
+		stareg2 |= 1<<1; //ʹ��QEλ
 		w25qxx_WriteSR(W25X_WriteStatusReg2,stareg2);
 	}
 	QSPI_Send_CMD(hqspi,W25X_EnterQSPIMode,0x00,QSPI_ADDRESS_8_BITS,0,QSPI_INSTRUCTION_1_LINE,QSPI_ADDRESS_NONE,QSPI_DATA_NONE,0);

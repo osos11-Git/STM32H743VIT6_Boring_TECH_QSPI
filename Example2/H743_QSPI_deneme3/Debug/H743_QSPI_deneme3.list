@@ -21,23 +21,23 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   ALLOC
   8 .ARM.attributes 0000002e  00000000  00000000  00020028  2**0
                   CONTENTS, READONLY
-  9 .debug_info   00013e49  00000000  00000000  00020056  2**0
+  9 .debug_info   00013e2d  00000000  00000000  00020056  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 10 .debug_abbrev 00002540  00000000  00000000  00033e9f  2**0
+ 10 .debug_abbrev 0000252d  00000000  00000000  00033e83  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 11 .debug_aranges 000008e0  00000000  00000000  000363e0  2**3
+ 11 .debug_aranges 000008e0  00000000  00000000  000363b0  2**3
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 12 .debug_ranges 00000808  00000000  00000000  00036cc0  2**3
+ 12 .debug_ranges 00000808  00000000  00000000  00036c90  2**3
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 13 .debug_macro  00035045  00000000  00000000  000374c8  2**0
+ 13 .debug_macro  00035045  00000000  00000000  00037498  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 14 .debug_line   0000b241  00000000  00000000  0006c50d  2**0
+ 14 .debug_line   0000b241  00000000  00000000  0006c4dd  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 15 .debug_str    0014fd55  00000000  00000000  0007774e  2**0
+ 15 .debug_str    0014fd55  00000000  00000000  0007771e  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 16 .comment      00000053  00000000  00000000  001c74a3  2**0
+ 16 .comment      00000053  00000000  00000000  001c7473  2**0
                   CONTENTS, READONLY
- 17 .debug_frame  00002290  00000000  00000000  001c74f8  2**2
+ 17 .debug_frame  00002290  00000000  00000000  001c74c8  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
 Disassembly of section .text:
@@ -340,7 +340,7 @@ __STATIC_FORCEINLINE void __DSB(void)
  800046e:	2064      	movs	r0, #100	; 0x64
  8000470:	f000 fea8 	bl	80011c4 <HAL_Delay>
 
-  if (CSP_QSPI_Erase_Chip() != HAL_OK)
+  if (CSP_QSPI_Erase_Chip() != HAL_OK)  //approx 13 second to execute
  8000474:	f000 fa14 	bl	80008a0 <CSP_QSPI_Erase_Chip>
  8000478:	4603      	mov	r3, r0
  800047a:	2b00      	cmp	r3, #0

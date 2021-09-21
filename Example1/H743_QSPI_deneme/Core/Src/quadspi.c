@@ -164,16 +164,16 @@ void QSPI_Send_CMD(u32 instruction,u32 address,u32 dummyCycles,u32 instructionMo
 {
     QSPI_CommandTypeDef Cmdhandler;
     
-    Cmdhandler.Instruction=instruction;                 	
-    Cmdhandler.Address=address;                            	
-    Cmdhandler.DummyCycles=dummyCycles;                     
-    Cmdhandler.InstructionMode=instructionMode;				
-    Cmdhandler.AddressMode=addressMode;   					
-    Cmdhandler.AddressSize=addressSize;   			
-    Cmdhandler.DataMode=dataMode;             				
-    Cmdhandler.SIOOMode=QSPI_SIOO_INST_EVERY_CMD;       	
-    Cmdhandler.AlternateByteMode=QSPI_ALTERNATE_BYTES_NONE; 
-    Cmdhandler.DdrMode=QSPI_DDR_MODE_DISABLE;           	
+    Cmdhandler.Instruction=instruction;
+    Cmdhandler.Address=address;                            	ַ
+    Cmdhandler.DummyCycles=dummyCycles;
+    Cmdhandler.InstructionMode=instructionMode;
+    Cmdhandler.AddressMode=addressMode;
+    Cmdhandler.AddressSize=addressSize;
+    Cmdhandler.DataMode=dataMode;
+    Cmdhandler.SIOOMode=QSPI_SIOO_INST_EVERY_CMD;
+    Cmdhandler.AlternateByteMode=QSPI_ALTERNATE_BYTES_NONE;
+    Cmdhandler.DdrMode=QSPI_DDR_MODE_DISABLE;
     Cmdhandler.DdrHoldHalfCycle=QSPI_DDR_HHC_ANALOG_DELAY;
 
     HAL_QSPI_Command(&hqspi,&Cmdhandler,5000);
@@ -182,16 +182,16 @@ void QSPI_Send_CMD(u32 instruction,u32 address,u32 dummyCycles,u32 instructionMo
 
 u8 QSPI_Receive(u8* buf,u32 datalen)
 {
-    hqspi.Instance->DLR=datalen-1;                           
-    if(HAL_QSPI_Receive(&hqspi,buf,5000)==HAL_OK) return 0;  
+    hqspi.Instance->DLR=datalen-1;
+    if(HAL_QSPI_Receive(&hqspi,buf,5000)==HAL_OK) return 0;
     else return 1;
 }
 
 
 u8 QSPI_Transmit(u8* buf,u32 datalen)
 {
-    hqspi.Instance->DLR=datalen-1;                            
-    if(HAL_QSPI_Transmit(&hqspi,buf,5000)==HAL_OK) return 0;  
+    hqspi.Instance->DLR=datalen-1;
+    if(HAL_QSPI_Transmit(&hqspi,buf,5000)==HAL_OK) return 0;
     else return 1;
 }
 /* USER CODE END 1 */

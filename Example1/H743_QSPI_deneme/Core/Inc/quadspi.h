@@ -41,8 +41,8 @@ void MX_QUADSPI_Init(void);
 
 /* USER CODE BEGIN Prototypes */
 //void QSPI_Send_CMD(u32 instruction,u32 address,u32 dummyCycles,u32 instructionMode,u32 addressMode,u32 addressSize,u32 dataMode);			//QSPI��������
-u8 QSPI_Receive(u8* buf,u32 datalen);							
-u8 QSPI_Transmit(u8* buf,u32 datalen);							
+u8 QSPI_Receive(u8* buf,u32 datalen);							//QSPI��������
+u8 QSPI_Transmit(u8* buf,u32 datalen);							//QSPI��������
 /* USER CODE END Prototypes */
 
 #ifdef __cplusplus

@@ -59,7 +59,6 @@ void SystemClock_Config(void);
 
 u8 writebuf[]={"Hello world from QSPI !"};
 u8 readbuf[100];
-u32 i=0;
 
 
 /* USER CODE END 0 */
@@ -107,7 +106,7 @@ int main(void)
 
   HAL_Delay(100);
 
-  if (CSP_QSPI_Erase_Chip() != HAL_OK)
+  if (CSP_QSPI_Erase_Chip() != HAL_OK)  //approx 13 second to execute
   {
 	  Error_Handler();
   }

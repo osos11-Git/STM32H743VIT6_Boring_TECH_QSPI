@@ -64,7 +64,7 @@ void SystemClock_Config(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-
+u32 i=0;
 /* USER CODE END 0 */
 
 /**
@@ -106,14 +106,18 @@ int main(void)
 
   w25qxx_Init();
   w25qxx_GetID();
+  W25qxx_EraseChip(); // approx 13 second to execute
   W25qxx_Write((uint8_t*)TEXT_Buffer, 0, SIZE);
-  W25qxx_Write((uint8_t*)TEXT_Buffer2, SIZE+1, SIZE2);
-  W25qxx_Read(datatemp, 0, SIZE+SIZE2+1);
+  W25qxx_Write((uint8_t*)TEXT_Buffer2, SIZE, SIZE2);
+  W25qxx_Read(datatemp, 0, SIZE+SIZE2);
 
+/*
+for ( i=0;i<8192;i++)
+{
+	W25qxx_Write((uint8_t*)"\0", i, 1);   //full chip write
 
-
-  // W25QXX_Write((u8*)TEXT_Buffer,flash_size-100,SIZE);
- // W25QXX_Read(datatemp,flash_size-100,SIZE);
+}
+*/
   /* USER CODE END 2 */
 
   /* Infinite loop */

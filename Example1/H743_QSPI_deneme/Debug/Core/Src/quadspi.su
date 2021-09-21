@@ -1,5 +1,5 @@
 quadspi.c:30:6:MX_QUADSPI_Init	8	static
 quadspi.c:59:6:HAL_QSPI_MspInit	248	static
 quadspi.c:127:6:HAL_QSPI_MspDeInit	16	static
-quadspi.c:194:4:QSPI_Receive	16	static
-quadspi.c:206:4:QSPI_Transmit	16	static
+quadspi.c:183:4:QSPI_Receive	16	static
+quadspi.c:191:4:QSPI_Transmit	16	static
