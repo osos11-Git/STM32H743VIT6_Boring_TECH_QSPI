@@ -3,9 +3,34 @@
  
  
 
- ***Example***
+ ***Example1***
  
  Just a simple example. This example does not create a .stldr file. It communicates with the W25Q64 and handles operations such as read,write etc...
+ 
+ Based on WeAct Studio H743VIT6 and some chinese source.
+ 
+ WeAct Studio H743VIT6 : https://github.com/WeActTC/MiniSTM32H7xx/tree/master/SDK/HAL/STM32H743/06-SPIFlash_Test/Drivers/BSP/W25QXX
+ 
+ Chinese Source : https://cloud.tencent.com/developer/article/1662643
+ 
+ 
+ ***Example2***
+ 
+ Just a simple example. This example does not create a .stldr file. It communicates with the W25Q64 and handles operations such as read,write etc...
+ 
+ Based on Controllers Tech Youtube channel and GitHub, ST Official QSPI Driver for N25Qxx, DevEBox H743VIT6 and some chinese source.
+ 
+ This example is based on the general similarity between the W25Qxx and the N25Qxx. In the project, ST's official N25Qxx drivers were edited for the W25Qxx.
+ 
+ Controllers Tech Video : https://youtu.be/xIfh_uYy-OU
+ 
+ Controllers Tech GitHub : https://github.com/controllerstech/STM32/tree/master/QSPI/N25Qxxx
+ 
+ DevEBox H743VIT6 : https://github.com/manoloaterol/MCUDEV_DevEBox_H743-W25Q64-EL
+ 
+ Chinese Source : https://cloud.tencent.com/developer/article/1662643
+ 
+ This example is similar to the video on the Controllers Tech Youtube channel. 
  
  
  ***.stldr CubeProgrammer External Loader***
