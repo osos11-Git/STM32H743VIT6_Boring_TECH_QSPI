@@ -127,8 +127,7 @@ for ( i=0;i<8192;i++)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-//	  W25qxx_Write((uint8_t*)TEXT_Buffer, 10, SIZE);
-  //    HAL_Delay(5000);
+
   }
   /* USER CODE END 3 */
 }
