@@ -1,0 +1,15 @@
+w25qxx.c:27:6:W25QXX_Init	32	static
+w25qxx.c:49:6:W25QXX_Qspi_Enable	32	static
+w25qxx.c:64:6:W25QXX_Qspi_Disable	24	static
+w25qxx.c:87:4:W25QXX_ReadSR	40	static
+w25qxx.c:112:6:W25QXX_Write_SR	40	static
+w25qxx.c:137:6:W25QXX_Write_Enable	24	static
+w25qxx.c:145:6:W25QXX_Write_Disable	24	static
+w25qxx.c:158:5:W25QXX_ReadID	32	static
+w25qxx.c:174:6:W25QXX_Read	40	static
+w25qxx.c:185:6:W25QXX_Write_Page	40	static
+w25qxx.c:201:6:W25QXX_Write_NoCheck	32	static
+w25qxx.c:229:6:W25QXX_Write	40	static
+w25qxx.c:276:6:W25QXX_Erase_Chip	24	static
+w25qxx.c:287:6:W25QXX_Erase_Sector	32	static
+w25qxx.c:299:6:W25QXX_Wait_Busy	8	static
