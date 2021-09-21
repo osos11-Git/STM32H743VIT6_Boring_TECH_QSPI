@@ -13,6 +13,8 @@
  
  Chinese Source : https://cloud.tencent.com/developer/article/1662643
  
+Also quadspi.h , quadspi.c , main.h edited.
+ 
  
  # ***Example2***
  
@@ -32,6 +34,9 @@
  
  This example is similar to the video on the Controllers Tech Youtube channel. 
  
+ Also quadspi.h , quadspi.c , main.h edited.
+
+ 
  
  # ***.stldr CubeProgrammer External Loader***
  
@@ -42,7 +47,6 @@
  And very useful video . If you are going to create your own .stldr file you should watch. : https://youtu.be/XqCq0xtQmbI
  
  The two boards have the same MCU and FLASH, but each board's FLASH is connected to different pins. So the .stldr file in that project(DevEBox) will not work in Boring_TECH.
- 
  
  Copy the .stldr file into CubeProgrammer\bin\ExternalLoader\
  
