@@ -17,6 +17,11 @@
  When you run CubeProgrammer, you can find it in External Loaders(EL) with the name W25Q64-STM32H743VI
  
  
+![alt text](https://github.com/osos11-Git/STM32H743VIT6_Boring_TECH_QSPI/blob/main/CubeProgrammer%20ExtLoader/CUBEP.JPG?raw=true)
+![alt text](https://github.com/osos11-Git/STM32H743VIT6_Boring_TECH_QSPI/blob/main/CubeProgrammer%20ExtLoader/CUBEP2.JPG?raw=true)
+
+
+
  !***Example***!
  
  Just a simple example. This example does not create a .stldr file. It communicates with the W25Q64 and handles operations such as read,write etc...
