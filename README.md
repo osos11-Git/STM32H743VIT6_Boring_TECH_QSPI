@@ -2,7 +2,8 @@
  STM32H743VIT6 Boring_TECH QSPI Sources
  
  
- !***.stldr CubeProgrammer External Loader***!
+ ***.stldr CubeProgrammer External Loader***
+ 
  STM32CubeIDE to build .stldr file (I use 1.7.0)
  
  I took this project as an example to create the .stldr file. : https://github.com/manoloaterol/MCUDEV_DevEBox_H743-W25Q64-EL
@@ -22,7 +23,7 @@
 
 
 
- !***Example***!
+ ***Example***
  
  Just a simple example. This example does not create a .stldr file. It communicates with the W25Q64 and handles operations such as read,write etc...
  
