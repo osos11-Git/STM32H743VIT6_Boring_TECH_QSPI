@@ -2,6 +2,12 @@
  STM32H743VIT6 Boring_TECH QSPI Sources
  
  
+
+ ***Example***
+ 
+ Just a simple example. This example does not create a .stldr file. It communicates with the W25Q64 and handles operations such as read,write etc...
+ 
+ 
  ***.stldr CubeProgrammer External Loader***
  
  STM32CubeIDE to build .stldr file (I use 1.7.0)
@@ -22,8 +28,4 @@
 ![alt text](https://github.com/osos11-Git/STM32H743VIT6_Boring_TECH_QSPI/blob/main/CubeProgrammer%20ExtLoader/CUBEP2.JPG?raw=true)
 
 
-
- ***Example***
- 
- Just a simple example. This example does not create a .stldr file. It communicates with the W25Q64 and handles operations such as read,write etc...
  
