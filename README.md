@@ -1,7 +1,9 @@
 # STM32H743VIT6_Boring_TECH_QSPI
  STM32H743VIT6 Boring_TECH QSPI Sources
  
- 
+ STM32H7 FW v1.9.0
+ STM32CubeIDE v1.7.0
+ STM32CubeProgrammer v2.7.0
 
  # ***Example1***
  
@@ -40,7 +42,7 @@ Also quadspi.h , quadspi.c , main.h edited.
  
  # ***.stldr CubeProgrammer External Loader***
  
- STM32CubeIDE to build .stldr file (I use 1.7.0)
+ STM32CubeIDE to build .stldr file 
  
  I took this project as an example to create the .stldr file. : https://github.com/manoloaterol/MCUDEV_DevEBox_H743-W25Q64-EL
  
