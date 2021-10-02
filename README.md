@@ -53,7 +53,33 @@ Also quadspi.h , quadspi.c , main.h edited.
  Copy the .stldr file into CubeProgrammer\bin\ExternalLoader\
  
  When you run CubeProgrammer, you can find it in External Loaders(EL) with the name W25Q64-STM32H743VI
+
+
+ # ***Memory Mapped Mode***
+
+Just simple examples. Based on the video on the Controllers Tech Youtube channel.
+
+Controllers Tech Video : https://youtu.be/gAyuF20ok8c
+
+The `XIP_1` project is the same as `Example2`. The only difference is the use of Memory Mapping Mode.
+
+The `XIP_2` project is install on W25Q64. It is similar to the project created after 6:08 in the video.
+
+There is a very important difference. An additional line must be edited in the `system_stm32h7xx.c` file. It will not work if not edited.
+
+Before editing :  SCB->VTOR = `FLASH_BANK1_BASE` | VECT_TAB_OFFSET; /* Vector Table Relocation in Internal FLASH */
+
+After editing :   SCB->VTOR = `QSPI_BASE` | VECT_TAB_OFFSET; /* Vector Table Relocation in Internal FLASH */
+
+
+ # ***How to Debug in Memory Mapped Mode ?***
+
+ Copy the W25Q64 .stldr file into \STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.cubeprogrammer.win32_2.0.0.202105311346\tools\bin\ExternalLoader\
  
+ Everything else is the same as the video.
+ 
+
+
 ![alt text](https://github.com/osos11-Git/STM32H743VIT6_Boring_TECH_QSPI/blob/main/Board%20Pics/board2.JPG?raw=true)
 ![alt text](https://github.com/osos11-Git/STM32H743VIT6_Boring_TECH_QSPI/blob/main/CubeProgrammer%20ExtLoader/CUBEP.JPG?raw=true)
 ![alt text](https://github.com/osos11-Git/STM32H743VIT6_Boring_TECH_QSPI/blob/main/CubeProgrammer%20ExtLoader/CUBEP2.JPG?raw=true)
