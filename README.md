@@ -2,7 +2,9 @@
  STM32H743VIT6 Boring_TECH QSPI Sources
  
  STM32H7 FW v1.9.0
+ 
  STM32CubeIDE v1.7.0
+ 
  STM32CubeProgrammer v2.7.0
 
  # ***Example1***
