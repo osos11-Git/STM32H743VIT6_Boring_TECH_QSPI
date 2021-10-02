@@ -63,6 +63,8 @@ Just simple examples. Based on the video on the Controllers Tech Youtube channel
 
 Controllers Tech Video : https://youtu.be/gAyuF20ok8c
 
+Controllers Tech GitHub : https://github.com/controllerstech/STM32/tree/master/QSPI/N25Qxxx/EXT_MEM_BOOT
+
 The `XIP_1` project is the same as `Example2`. The only difference is the use of Memory Mapping Mode.
 
 The `XIP_2` project is install on W25Q64. It is similar to the project created after 6:08 in the video.
