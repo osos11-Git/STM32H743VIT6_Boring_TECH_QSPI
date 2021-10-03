@@ -76,7 +76,7 @@ Before editing :  SCB->VTOR = `FLASH_BANK1_BASE` | VECT_TAB_OFFSET; /* Vector Ta
 After editing :   SCB->VTOR = `QSPI_BASE` | VECT_TAB_OFFSET; /* Vector Table Relocation in Internal FLASH */
 
 
- # ***How to Debug in Memory Mapped Mode ?***
+ # ***How to Debug in Memory Mapped Mode(XIP) ?***
 
  Copy the W25Q64 .stldr file into \STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.cubeprogrammer.win32_2.0.0.202105311346\tools\bin\ExternalLoader\
  
